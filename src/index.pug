@@ -1,0 +1,730 @@
+- 
+  var categories = ['alkali-metals','alkaline-earth-metals','lanthanoids','actinoids','transition-metals','post-transition-metals','metalloids','other-nonmetals', 'halogens','noble-gasses','unknown']
+  var localization = {
+    "es": {
+      "langname": "Spanish",
+      "alkali-metals": "Metales Alcalinos",
+      "alkaline-earth-metals": "Metales Alcalinotérreos",
+      "lanthanoids": "Lantanoides",
+      "actinoids": "Aktinoides",
+      "transition-metals": "Metales de transición",
+      "post-transition-metals": "Post-Transition Metals",
+      "metalloids": "Metaloides",
+      "other-nonmetals": "no metales",
+      "halogens": "Halógeno",
+      "noble-gasses": "gases nobles",
+      "unknown": "desconocida",
+      "Hydrogen": "Hidrógeno",
+      "Helium": "Helio",
+      "Lithium": "Litio",
+      "Beryllium": "Berilio",
+      "Boron": "Boro",
+      "Carbon": "Carbono",
+      "Nitrogen": "Nitrógeno",
+      "Oxygen": "Oxígeno",
+      "Flourine": "Flúor",
+      "Neon": "Neón",
+      "Sodium": "Sodio",
+      "Magnesium": "Magnesio",
+      "Aluminum": "Aluminio",
+      "Silicon": "Silicio",
+      "Phosphorus": "Fósforo",
+      "Sulfur": "Azufre",
+      "Chlorine": "Cloro",
+      "Argon": "Argón",
+      "Potassium": "Potasio",
+      "Calcium": "Calcio",
+      "Scandium": "Escandio",
+      "Titanium": "Titanio",
+      "Vanadium": "Vanadio",
+      "Chromium": "Cromo",
+      "Manganese": "Manganeso",
+      "Iron": "Hierro",
+      "Cobalt": "Cobalto",
+      "Nickel": "Níquel",
+      "Copper": "Cobre",
+      "Zinc": "Zinc",
+      "Gallium": "Galio",
+      "Germanium": "Germanio",
+      "Arsenic": "Arsénico",
+      "Selenium": "Selenio",
+      "Bromine": "Bromo",
+      "Krypton": "Kriptón",
+      "Rubidium": "Rubidio",
+      "Strontium": "Estroncio",
+      "Yttrium": "Itrio",
+      "Zirconium": "Zirconio",
+      "Niobium": "Niobio",
+      "Molybdenum": "Molibdeno",
+      "Technetium": "Tecnecio",
+      "Ruthenium": "Rutenio",
+      "Rhodium": "Rodio",
+      "Palladium": "Plata",
+      "Silver": "Silver",
+      "Cadmium": "Cadmio",
+      "Indium": "Indio",
+      "Tin": "Estaño",
+      "Antimony": "Antimonio",
+      "Tellurium": "Telurio",
+      "Iodine": "Yodo",
+      "Xenon": "Xenón",
+      "Caesium": "Cesio",
+      "Barium": "Bario",
+      "Lanthanum": "Lantano",
+      "Cerium": "Cerio",
+      "Praseodymium": "Praseodimio",
+      "Neodymium": "Neodimio",
+      "Promethium": "Prometio",
+      "Samarium": "Samario",
+      "Europium": "Europio",
+      "Gadolinium": "Gadolinio",
+      "Terbium": "Terbio",
+      "Dysprosium": "Disprosio",
+      "Holmium": "Holmio",
+      "Erbium": "Erbio",
+      "Thulium": "Tulio",
+      "Ytterbium": "Iterbio",
+      "Lutetium": "Lutecio",
+      "Hafnium": "Hafnio",
+      "Tantalum": "Tantalio",
+      "Tungsten": "Wolframio",
+      "Rhenium": "Renio",
+      "Osmium": "Osmio",
+      "Iridium": "Iridio",
+      "Platinum": "Platino",
+      "Gold": "Oro",
+      "Mercury": "Mercurio",
+      "Thallium": "Talio",
+      "Lead": "Bismuto",
+      "Bismuth": "Bismuth",
+      "Polonium": "Polonio",
+      "Astatine": "Astato",
+      "Radon": "Radón",
+      "Francium": "Francio",
+      "Radium": "Radio",
+      "Actinium": "Actinio",
+      "Thorium": "Torio",
+      "Protactinium": "Protactinio",
+      "Uranium": "Uranio",
+      "Neptunium": "Neptunio",
+      "Plutonium": "Plutonio",
+      "Americium": "Americio",
+      "Curium": "Curio",
+      "Berkelium": "Berkelio",
+      "Californium": "Californio",
+      "Einsteinium": "Einstenio",
+      "Fermium": "Fermio",
+      "Mendelevium": "Mendelevio",
+      "Nobelium": "Nobelio",
+      "Lawrencium": "Laurencio",
+      "Rutherfordium": "Rutherfordio",
+      "Dubnium": "Dubnio",
+      "Seaborgium": "Seaborgio",
+      "Bohrium": "Bohrio",
+      "Hassium": "Hassio",
+      "Meitnerium": "Meitnerio",
+      "Darmstadtium": "Darmstadtio",
+      "Roentgenium": "Roentgenio",
+      "Copernicium": "Copernicio",
+      "Nihonium": "Nihonio",
+      "Flerovium": "Flerovio",
+      "Moscovium": "Moscovio",
+      "Livermorium": "Livermorio",
+      "Tennessine": "Teneso",
+      "Oganesson": "Oganesón",
+      "legend": "Leyenda",
+      "symbol": "Symbol",
+      "elementname": "nombre",
+      "atomicnumber": "número atómico",
+      "electronegativity": "electronegatividad",
+      "atomic_weight_in_u": "Masa atómica",
+      "no_reliable_measurement": "No hay una medición confiable disponible",
+      "radioactive": "Radioactiva",
+      "group_explaination": "Grupo: IUPAC / Mendeleev",
+    },
+    "en": {
+      "langname": "English",
+      "alkali-metals": "Alkali Metals",
+      "alkaline-earth-metals": "Alkaline Earth Metals",
+      "lanthanoids": "Lanthanoids",
+      "actinoids": "Aktinoids",
+      "transition-metals": "Transition Metals",
+      "post-transition-metals": "Post-Transition Metals",
+      "metalloids": "Metalloids",
+      "other-nonmetals": "Other Nonmetals",
+      "halogens": "Halogens",
+      "noble-gasses": "Noble Gasses",
+      "unknown": "Unknown",
+      "Hydrogen": "Hydrogen",
+      "Helium": "Helium",
+      "Lithium": "Lithium",
+      "Beryllium": "Beryllium",
+      "Boron": "Boron",
+      "Carbon": "Carbon",
+      "Nitrogen": "Nitrogen",
+      "Oxygen": "Oxygen",
+      "Flourine": "Flourine",
+      "Neon": "Neon",
+      "Sodium": "Sodium",
+      "Magnesium": "Magnesium",
+      "Aluminum": "Aluminum",
+      "Silicon": "Silicon",
+      "Phosphorus": "Phosphorus",
+      "Sulfur": "Sulfur",
+      "Chlorine": "Chlorine",
+      "Argon": "Argon",
+      "Potassium": "Potassium",
+      "Calcium": "Calcium",
+      "Scandium": "Scandium",
+      "Titanium": "Titanium",
+      "Vanadium": "Vanadium",
+      "Chromium": "Chromium",
+      "Manganese": "Manganese",
+      "Iron": "Iron",
+      "Cobalt": "Cobalt",
+      "Nickel": "Nickel",
+      "Copper": "Copper",
+      "Zinc": "Zinc",
+      "Gallium": "Gallium",
+      "Germanium": "Germanium",
+      "Arsenic": "Arsenic",
+      "Selenium": "Selenium",
+      "Bromine": "Bromine",
+      "Krypton": "Krypton",
+      "Rubidium": "Rubidium",
+      "Strontium": "Strontium",
+      "Yttrium": "Yttrium",
+      "Zirconium": "Zirconium",
+      "Niobium": "Niobium",
+      "Molybdenum": "Molybdenum",
+      "Technetium": "Technetium",
+      "Ruthenium": "Ruthenium",
+      "Rhodium": "Rhodium",
+      "Palladium": "Palladium",
+      "Silver": "Silver",
+      "Cadmium": "Cadmium",
+      "Indium": "Indium",
+      "Tin": "Tin",
+      "Antimony": "Antimony",
+      "Tellurium": "Tellurium",
+      "Iodine": "Iodine",
+      "Xenon": "Xenon",
+      "Caesium": "Caesium",
+      "Barium": "Barium",
+      "Lanthanum": "Lanthanum",
+      "Cerium": "Cerium",
+      "Praseodymium": "Praseodymium",
+      "Neodymium": "Neodymium",
+      "Promethium": "Promethium",
+      "Samarium": "Samarium",
+      "Europium": "Europium",
+      "Gadolinium": "Gadolinium",
+      "Terbium": "Terbium",
+      "Dysprosium": "Dysprosium",
+      "Holmium": "Holmium",
+      "Erbium": "Erbium",
+      "Thulium": "Thulium",
+      "Ytterbium": "Ytterbium",
+      "Lutetium": "Lutetium",
+      "Hafnium": "Hafnium",
+      "Tantalum": "Tantalum",
+      "Tungsten": "Tungsten",
+      "Rhenium": "Rhenium",
+      "Osmium": "Osmium",
+      "Iridium": "Iridium",
+      "Platinum": "Platinum",
+      "Gold": "Gold",
+      "Mercury": "Mercury",
+      "Thallium": "Thallium",
+      "Lead": "Lead",
+      "Bismuth": "Bismuth",
+      "Polonium": "Polonium",
+      "Astatine": "Astatine",
+      "Radon": "Radon",
+      "Francium": "Francium",
+      "Radium": "Radium",
+      "Actinium": "Actinium",
+      "Thorium": "Thorium",
+      "Protactinium": "Protactinium",
+      "Uranium": "Uranium",
+      "Neptunium": "Neptunium",
+      "Plutonium": "Plutonium",
+      "Americium": "Americium",
+      "Curium": "Curium",
+      "Berkelium": "Berkelium",
+      "Californium": "Californium",
+      "Einsteinium": "Einsteinium",
+      "Fermium": "Fermium",
+      "Mendelevium": "Mendelevium",
+      "Nobelium": "Nobelium",
+      "Lawrencium": "Lawrencium",
+      "Rutherfordium": "Rutherfordium",
+      "Dubnium": "Dubnium",
+      "Seaborgium": "Seaborgium",
+      "Bohrium": "Bohrium",
+      "Hassium": "Hassium",
+      "Meitnerium": "Meitnerium",
+      "Darmstadtium": "Darmstadtium",
+      "Roentgenium": "Roentgenium",
+      "Copernicium": "Copernicium",
+      "Nihonium": "Nihonium",
+      "Flerovium": "Flerovium",
+      "Moscovium": "Moscovium",
+      "Livermorium": "Livermorium",
+      "Tennessine": "Tennessine",
+      "Oganesson": "Oganesson",
+      "legend": "Legend",
+      "symbol": "Symbol",
+      "elementname": "Name",
+      "atomicnumber": "Atomic Number",
+      "electronegativity": "Electronegativity",
+      "atomic_weight_in_u": "Standard atomic weight in u",
+      "no_reliable_measurement": "No reliable measurement available",
+      "radioactive": "Radioactive",
+      "group_explaination": "Groupe: IUPAC / Mendeleev",
+    },
+    "de": {
+      "langname": "German",
+      "alkali-metals": "Alkalimetalle",
+      "alkaline-earth-metals": "Erdalkalimetalle",
+      "lanthanoids": "Lanthanoide",
+      "actinoids": "Actinoide",
+      "transition-metals": "Übergangsmetalle",
+      "post-transition-metals": "Metalle",
+      "metalloids": "Halbmetalle",
+      "other-nonmetals": "Nichtmetalle",
+      "halogens": "Halogene",
+      "noble-gasses": "Edelgase",
+      "unknown": "unbekannt",
+      "Hydrogen": "Wasserstoff",
+      "Helium": "Helium",
+      "Lithium": "Lithium",
+      "Beryllium": "Beryllium",
+      "Boron": "Bor",
+      "Carbon": "Kohlenstoff",
+      "Nitrogen": "Stickstoff",
+      "Oxygen": "Sauerstoff",
+      "Flourine": "Fluor",
+      "Neon": "Neon",
+      "Sodium": "Natrium",
+      "Magnesium": "Magnesium",
+      "Aluminum": "Aluminium",
+      "Silicon": "Silicium",
+      "Phosphorus": "Phosphor",
+      "Sulfur": "Schwefel",
+      "Chlorine": "Chlor",
+      "Argon": "Argon",
+      "Potassium": "Kalium",
+      "Calcium": "Calcium",
+      "Scandium": "Scandium",
+      "Titanium": "Titan",
+      "Vanadium": "Vanadium",
+      "Chromium": "Chrom",
+      "Manganese": "Mangan",
+      "Iron": "Eisen",
+      "Cobalt": "Cobalt",
+      "Nickel": "Nickel",
+      "Copper": "Kupfer",
+      "Zinc": "Zink",
+      "Gallium": "Gallium",
+      "Germanium": "Germanium",
+      "Arsenic": "Arsen",
+      "Selenium": "Selen",
+      "Bromine": "Brom",
+      "Krypton": "Krypton",
+      "Rubidium": "Rubidium",
+      "Strontium": "Strontium",
+      "Yttrium": "Yttrium",
+      "Zirconium": "Zirconium",
+      "Niobium": "Niob",
+      "Molybdenum": "Molybdän",
+      "Technetium": "Technetium",
+      "Ruthenium": "Ruthenium",
+      "Rhodium": "Rhodium",
+      "Palladium": "Palladium",
+      "Silver": "Silber",
+      "Cadmium": "Cadmium",
+      "Indium": "Indium",
+      "Tin": "Zinn",
+      "Antimony": "Antimon",
+      "Tellurium": "Tellur",
+      "Iodine": "Iod",
+      "Xenon": "Xenon",
+      "Caesium": "Caesium",
+      "Barium": "Barium",
+      "Lanthanum": "Lanthan",
+      "Cerium": "Cer",
+      "Praseodymium": "Praseodym",
+      "Neodymium": "Neodym",
+      "Promethium": "Promethium",
+      "Samarium": "Samarium",
+      "Europium": "Europium",
+      "Gadolinium": "Gadolinium",
+      "Terbium": "Terbium",
+      "Dysprosium": "Dysprosium",
+      "Holmium": "Holmium",
+      "Erbium": "Erbium",
+      "Thulium": "Thulium",
+      "Ytterbium": "Ytterbium",
+      "Lutetium": "Lutetium",
+      "Hafnium": "Hafnium",
+      "Tantalum": "Tantal",
+      "Tungsten": "Wolfram",
+      "Rhenium": "Rhenium",
+      "Osmium": "Osmium",
+      "Iridium": "Iridium",
+      "Platinum": "Platin",
+      "Gold": "Gold",
+      "Mercury": "Quecksilber",
+      "Thallium": "Thallium",
+      "Lead": "Blei",
+      "Bismuth": "Bismut",
+      "Polonium": "Polonium",
+      "Astatine": "Astat",
+      "Radon": "Radon",
+      "Francium": "Francium",
+      "Radium": "Radium",
+      "Actinium": "Actinium",
+      "Thorium": "Thorium",
+      "Protactinium": "Protactinium",
+      "Uranium": "Uran",
+      "Neptunium": "Neptunium",
+      "Plutonium": "Plutonium",
+      "Americium": "Americium",
+      "Curium": "Curium",
+      "Berkelium": "Berkelium",
+      "Californium": "Californium",
+      "Einsteinium": "Einsteinium",
+      "Fermium": "Fermium",
+      "Mendelevium": "Mendelevium",
+      "Nobelium": "Nobelium",
+      "Lawrencium": "Lawrencium",
+      "Rutherfordium": "Rutherfordium",
+      "Dubnium": "Dubnium",
+      "Seaborgium": "Seaborgium",
+      "Bohrium": "Bohrium",
+      "Hassium": "Hassium",
+      "Meitnerium": "Meitnerium",
+      "Darmstadtium": "Darmstadtium",
+      "Roentgenium": "Roentgenium",
+      "Copernicium": "Copernicium",
+      "Nihonium": "Nihonium",
+      "Flerovium": "Flerovium",
+      "Moscovium": "Moscovium",
+      "Livermorium": "Livermorium",
+      "Tennessine": "Tenness",
+      "Oganesson": "Oganesson",
+      "legend": "Legende",
+      "symbol": "Symbol",
+      "elementname": "Name",
+      "atomicnumber": "Ordnungszahl",
+      "electronegativity": "Elektronegativität",
+      "atomic_weight_in_u": "Atommasse in u",
+      "no_reliable_measurement": "kein zuverlässiger Messwert verfügbar",
+      "radioactive": "Radioaktiv",
+      "group_explaination": "Gruppe: IUPAC / Mendeleev",
+    },
+  }
+
+// LOCALIZATION MIXIN TEMPLATE
+mixin localized(key)
+  span.localizations
+    - for (var lang of Object.keys(localization))
+        span.localization(class='localization-' + lang)=localization[lang][key] || key
+
+// ELEMENT MIXIN TEMPLATE
+mixin element(number, symbol, name, mass, electronegativity, weight, material, column, row, transformed)
+  .element(class=typeof material == "string" ? material : material.join(" "))(class='c'+column)(class='r'+row, class=transformed ? "transformed" : "")
+    input.activate(type='radio', name='elements')
+    input.deactivate(type='radio', name='elements')
+    .overlay
+    +elementSquare(number, symbol, name, mass, electronegativity, weight)
+          
+mixin elementSquare(number, symbol, name, mass, electronegativity, weight)
+  .square
+    .model
+      each item in weight.reverse()
+        .orbital
+          - if(typeof item == "number") {
+            - for (var i = 0; i < item; i++)
+              .electron
+          - }
+          .electron.labeled(class=item)
+    .upper-left-label
+      .atomic-number= number
+      .electronegativity
+        - var elecFloat = parseFloat(electronegativity)
+        - if(elecFloat) {
+          .extendedswitch
+            .narrow= (Math.round(elecFloat * 10) / 10).toFixed(1)
+            .extended= electronegativity
+        - } else {
+          = electronegativity
+        - }
+    .label
+      .symbol= symbol
+      .name
+        +localized(name)
+    .atomic-mass
+      - var massFloat = parseFloat(mass)
+      - if(massFloat) {
+        .extendedswitch
+          .narrow= (Math.round(massFloat * 10) / 10).toFixed(1)
+          .extended= mass
+      - } else {
+        = mass
+      - }
+    ul.atomic-weight
+      each item in weight.reverse()
+        li= item
+
+
+// PLACEHOLDER MIXIN TEMPLATE
+mixin placeholder(number, material, column, row)
+  .placeholder(class=material)(class='c'+column)(class='r'+row)
+    .square= number
+
+.outerwrapper
+  - for (var lang of Object.keys(localization))
+    input.language-select(type='radio', id='language-' + lang, name='language', checked='true')
+  .wrapper
+    each item in categories
+      input.category-toggle(type='radio', id=item, name='categories')
+    input.category-cancel(type='radio', id='cancel' name='categories')
+    .periodic-table
+      +element(1, 'H', 'Hydrogen', "1.00794(4)", 2.2, [1], 'other-nonmetal', 1, 1)
+      +element(2, 'He', 'Helium', "4.002602(2)", "-", [2], ['other-nonmetal', 'noble-gas'], 18, 1)
+      +element(3, 'Li', 'Lithium', "6.941(2)", 0.98, [3], 'alkali-metal', 1, 2)
+      +element(4, 'Be', 'Beryllium', "9.0121831(5)", 1.57, [2,2], 'alkaline-earth-metal', 2, 2)
+      +element(5, 'B', 'Boron', "10.811(7)", 2.04, [2,3], 'metalloid', 13, 2)
+      +element(6, 'C', 'Carbon', "12.0107(8)", 2.55, [2,4], 'other-nonmetal', 14, 2)
+      +element(7, 'N', 'Nitrogen', "14.0067(2)", 3.04, [2,5], 'other-nonmetal', 15, 2)
+      +element(8, 'O', 'Oxygen', "15.9994(3)", 3.44, [2,6], 'other-nonmetal', 16, 2)
+      +element(9, 'F', 'Flourine', "18.998403163(6)", 3.98, [2,7], ['other-nonmetal', 'halogens'], 17, 2)
+      +element(10, 'Ne', 'Neon', "20.1797(6)", "-", [2,8], ['other-nonmetal', 'noble-gas'], 18, 2)
+      +element(11, 'Na', 'Sodium', "22.98976928(2)", 0.93, [2,8,1], 'alkali-metal', 1, 3)
+      +element(12, 'Mg', 'Magnesium', "24.3050(6)", 1.31, [2,8,2], 'alkaline-earth-metal', 2, 3)
+      +element(13, 'Al', 'Aluminum', "26.981538(43)", 1.61, [2,8,3], 'post-transition-metal', 13, 3)
+      +element(14, 'Si', 'Silicon', "28.0855(3)", 1.9, [2,8,4], 'metalloid', 14, 3)
+      +element(15, 'P', 'Phosphorus', "30.973761998(5)", 2.19, [2,8,5], 'other-nonmetal', 15, 3)
+      +element(16, 'S', 'Sulfur', "32.065(5)", 3.58, [2,8,6], 'other-nonmetal', 16, 3)
+      +element(17, 'Cl', 'Chlorine', "35.453(2)", 3.16, [2,8,7], ['other-nonmetal', 'halogens'], 17, 3)
+      +element(18, 'Ar', 'Argon', "39.948(1)", "-", [2,8,8], ['other-nonmetal', 'noble-gas'], 18, 3)
+      +element(19, 'K', 'Potassium', "39.0983(1)", 0.82, [2,8,8,1], 'alkali-metal', 1, 4)
+      +element(20, 'Ca', 'Calcium', "40.078(4)", 1, [2,8,8,2], 'alkaline-earth-metal', 2, 4)
+      +element(21, 'Sc', 'Scandium', "44.955908(5)", "1.36", [2,8,9,2], 'transition-metal', 3, 4)
+      +element(22, 'Ti', 'Titanium', "47.867(1)", "1.54", [2,8,10,2], 'transition-metal', 4, 4)
+      +element(23, 'V', 'Vanadium', "50.9415(1)", "1.63", [2,8,11,2], 'transition-metal', 5, 4)
+      +element(24, 'Cr', 'Chromium', "51.9961(6)", "1.66", [2,8,13,1], 'transition-metal', 6, 4)
+      +element(25, 'Mn', 'Manganese', "54.938043(2)", "1.55", [2,8,13,2], 'transition-metal', 7, 4)
+      +element(26, 'Fe', 'Iron', "55.845(2)", "1.83", [2,8,14,2], 'transition-metal', 8, 4)
+      +element(27, 'Co', 'Cobalt', "58.933194(3)", "1.88", [2,8,15,2], 'transition-metal', 9, 4)
+      +element(28, 'Ni', 'Nickel', "58.6934(4)", "1.91", [2,8,16,2], 'transition-metal', 10, 4)
+      +element(29, 'Cu', 'Copper', "63.546(3)", "1.9", [2,8,18,1], 'transition-metal', 11, 4)
+      +element(30, 'Zn', 'Zinc', "65.38(2)", "1.65", [2,8,18,2], 'transition-metal', 12, 4)
+      +element(31, 'Ga', 'Gallium', "69.723(1)", "1.81", [2,8,18,3], 'post-transition-metal', 13, 4)
+      +element(32, 'Ge', 'Germanium', "72.630(8)", "2.01", [2,8,18,4], 'metalloid', 14, 4)
+      +element(33, 'As', 'Arsenic', "74.921595(6)", "2.18", [2,8,18,5], 'metalloid', 15, 4)
+      +element(34, 'Se', 'Selenium', "78.971(8)", "2.55", [2,8,18,6], ['metalloid', 'other-nonmetal'], 16, 4)
+      +element(35, 'Br', 'Bromine', "79.904(1)", "2.96", [2,8,18,7], ['other-nonmetal', 'halogens'], 17, 4)
+      +element(36, 'Kr', 'Krypton', "83.798(2)", "-", [2,8,18,8], ['other-nonmetal', 'noble-gas'], 18, 4)
+      +element(37, 'Rb', 'Rubidium', "85.4678(3)", "0.82", [2,8,18,8,1], 'alkali-metal', 1, 5)
+      +element(38, 'Sr', 'Strontium', "87.62(1)", "0.95", [2,8,18,8,2], 'alkaline-earth-metal', 2, 5)
+      +element(39, 'Y', 'Yttrium', "88.90585(2)", "1.22", [2,8,18,9,2], 'transition-metal', 3, 5)
+      +element(40, 'Zr', 'Zirconium', "91.224(2)", "1.33", [2,8,18,10,2], 'transition-metal', 4, 5)
+      +element(41, 'Nb', 'Niobium', "92.90637(1)", "1.6", [2,8,18,12,1], 'transition-metal', 5, 5)
+      +element(42, 'Mo', 'Molybdenum', "95.95(1)", "2.16", [2,8,18,13,1], 'transition-metal', 6, 5)
+      +element(43, 'Tc*', 'Technetium', '(98)', "1.9", [2,8,18,13,2], 'transition-metal', 7, 5)
+      +element(44, 'Ru', 'Ruthenium', "101.07(2)", "2.2", [2,8,18,15,1], 'transition-metal', 8, 5)
+      +element(45, 'Rh', 'Rhodium', "102.90549(2)", "2.28", [2,8,18,16,1], 'transition-metal', 9, 5)
+      +element(46, 'Pd', 'Palladium', "106.42(1)", "2.2", [2,8,18,18], 'transition-metal', 10, 5)
+      +element(47, 'Ag', 'Silver', "107.8682(2)", "1.93", [2,8,18,18,1], 'transition-metal', 11, 5)
+      +element(48, 'Cd', 'Cadmium', "112.414(4)", "1.69", [2,8,18,18,2], 'transition-metal', 12, 5)
+      +element(49, 'In', 'Indium', "114.818(1)", "1.78", [2,8,18,18,3], 'post-transition-metal', 13, 5)
+      +element(50, 'Sn', 'Tin', "118.710(7)", "1.96", [2,8,18,18,4], 'post-transition-metal', 14, 5)
+      +element(51, 'Sb', 'Antimony', "121.760(1)", "2.05", [2,8,18,18,5], 'metalloid', 15, 5)
+      +element(52, 'Te', 'Tellurium', "127.60(3)", "2.1", [2,8,18,18,6], 'metalloid', 16, 5)
+      +element(53, 'I', 'Iodine', "126.90447(3)", "2.66", [2,8,18,18,7], ['other-nonmetal', 'halogens'], 17, 5)
+      +element(54, 'Xe', 'Xenon', "131.293(6)", "-", [2,8,18,18,8], ['other-nonmetal', 'noble-gas'], 18, 5)
+      +element(55, 'Cs', 'Caesium', "132.90545196(6)", "0.79", [2,8,18,18,8,1], 'alkali-metal', 1, 6)
+      +element(56, 'Ba', 'Barium', "137.327(7)", "0.89", [2,8,18,18,8,2], 'alkaline-earth-metal', 2, 6)
+      +element(57, 'La', 'Lanthanum', "138.90547(7)", "1.1", [2,8,18,18,9,2], 'lanthanoid', 4, 9)
+      +element(58, 'Ce', 'Cerium', "140.116(1)", "1.12", [2,8,18,19,9,2], 'lanthanoid', 5, 9)
+      +element(59, 'Pr', 'Praseodymium', "140.90766(1)", "1.13", [2,8,18,21,8,2], 'lanthanoid', 6, 9)
+      +element(60, 'Nd', 'Neodymium', "144.242(3)", "1.14", [2,8,18,22,8,2], 'lanthanoid', 7, 9)
+      +element(61, 'Pm', 'Promethium', "146.9151", "1.13", [2,8,18,23,8,2], 'lanthanoid', 8, 9)
+      +element(62, 'Sm', 'Samarium', "150.36(2)", "1.17", [2,8,18,24,8,2], 'lanthanoid', 9, 9)
+      +element(63, 'Eu', 'Europium', "151.964(1)", "1.2", [2,8,18,25,8,2], 'lanthanoid', 10, 9)
+      +element(64, 'Gd', 'Gadolinium', "157.25(3)", "1.2", [2,8,18,25,9,2], 'lanthanoid', 11, 9)
+      +element(65, 'Tb', 'Terbium', "158.925354(8)", "1.2", [2,8,18,27,8,2], 'lanthanoid', 12, 9)
+      +element(66, 'Dy', 'Dysprosium', "162.500(1)", "1.22", [2,8,18,28,8,2], 'lanthanoid', 13, 9)
+      +element(67, 'Ho', 'Holmium', "164.930328(7)", "1.23", [2,8,18,29,8,2], 'lanthanoid', 14, 9)
+      +element(68, 'Er', 'Erbium', "167.259(3)", "1.24", [2,8,18,30,8,2], 'lanthanoid', 15, 9)
+      +element(69, 'Tm', 'Thulium', "168.934218(6)", "1.25", [2,8,18,31,8,2], 'lanthanoid', 16, 9)
+      +element(70, 'Yb', 'Ytterbium', "173.045(10)", "1.1", [2,8,18,32,8,2], 'lanthanoid', 17, 9)
+      +element(71, 'Lu', 'Lutetium', "174.9668(1)", "1.27", [2,8,18,32,9,2], 'lanthanoid', 18, 9)
+      +element(72, 'Hf', 'Hafnium', "178.486(6)", "1.3", [2,8,18,32,10,2], 'transition-metal', 4, 6)
+      +element(73, 'Ta', 'Tantalum', "180.94788(2)", "1.5", [2,8,18,32,11,2], 'transition-metal', 5, 6)
+      +element(74, 'W', 'Tungsten', "183.84(1)", "2.36", [2,8,18,32,12,2], 'transition-metal', 6, 6)
+      +element(75, 'Re', 'Rhenium', "186.207(1)", "1.9", [2,8,18,32,13,2], 'transition-metal', 7, 6)
+      +element(76, 'Os', 'Osmium', "190.23(3)", "2.2", [2,8,18,32,14,2], 'transition-metal', 8, 6)
+      +element(77, 'Ir', 'Iridium', "192.217(2)", "2.2", [2,8,18,32,15,2], 'transition-metal', 9, 6)
+      +element(78, 'Pt', 'Platinum', "195.084(9)", "2.28", [2,8,18,32,17,1], 'transition-metal', 10, 6)
+      +element(79, 'Au', 'Gold', "196.966570(4)", "2.54", [2,8,18,32,18,1], 'transition-metal', 11, 6)
+      +element(80, 'Hg', 'Mercury', "200.592(3)", "2", [2,8,18,32,18,2], 'transition-metal', 12, 6)
+      +element(81, 'Tl', 'Thallium', "204.3833(2)", "2.04", [2,8,18,32,18,3], 'post-transition-metal', 13, 6)
+      +element(82, 'Pb', 'Lead', "207.2(1)", "2.33", [2,8,18,32,18,4], 'post-transition-metal', 14, 6)
+      +element(83, 'Bi', 'Bismuth', "208.98040(1)", "2.02", [2,8,18,32,18,5], 'post-transition-metal', 15, 6)
+      +element(84, 'Po*', 'Polonium', '(209)', "2", [2,8,18,32,18,6], 'post-transition-metal', 16, 6)
+      +element(85, 'At*', 'Astatine', '(210)', "2.2", [2,8,18,32,18,7], ['other-nonmetal', 'halogens'], 17, 6)
+      +element(86, 'Rn*', 'Radon', '(222)', "-", [2,8,18,32,18,8], ['other-nonmetal', 'noble-gas'], 18, 6)
+      +element(87, 'Fr*', 'Francium', '(223)', "0.7", [2,8,18,32,18,8,1], 'alkali-metal', 1, 7)
+      +element(88, 'Ra*', 'Radium', '(226)', "0.9", [2,8,18,32,18,8,2], 'alkaline-earth-metal', 2, 7)
+      +element(89, 'Ac*', 'Actinium', '(227)', "1.1", [2,8,18,32,18,9,2], 'actinoid', 4, 10)
+      +element(90, 'Th*', 'Thorium', "232.0377(4)", "1.3", [2,8,18,32,18,10,2], 'actinoid', 5, 10)
+      +element(91, 'Pa*', 'Protactinium', "231.03588(1)", "1.5", [2,8,18,32,20,9,2], 'actinoid', 6, 10)
+      +element(92, 'U*', 'Uranium', "238.02891(3)", "1.38", [2,8,18,32,21,9,2], 'actinoid', 7, 10)
+      +element(93, 'Np*', 'Neptunium', '(237)', "1.36", [2,8,18,32,22,9,2], 'actinoid', 8, 10)
+      +element(94, 'Pu*', 'Plutonium', '(244)', "1.28", [2,8,18,32,24,8,2], 'actinoid', 9, 10)
+      +element(95, 'Am*', 'Americium', '(243)', "1.3", [2,8,18,32,25,8,2], 'actinoid', 10, 10)
+      +element(96, 'Cm*', 'Curium', '(247)', "1.3", [2,8,18,32,25,9,2], 'actinoid', 11, 10)
+      +element(97, 'Bk*', 'Berkelium', '(247)', "1.3", [2,8,18,32,27,8,2], 'actinoid', 12, 10)
+      +element(98, 'Cf*', 'Californium', '(251)', "1.3", [2,8,18,32,28,8,2], 'actinoid', 13, 10)
+      +element(99, 'Es*', 'Einsteinium', '(252)', "1.3", [2,8,18,32,29,8,2], 'actinoid', 14, 10)
+      +element(100, 'Fm*', 'Fermium', '(257)', "1.3", [2,8,18,32,30,8,2], 'actinoid', 15, 10)
+      +element(101, 'Md*', 'Mendelevium', '(258)', "1.3", [2,8,18,32,31,8,2], 'actinoid', 16, 10)
+      +element(102, 'No*', 'Nobelium', '(259)', "1.3", [2,8,18,32,32,8,2], 'actinoid', 17, 10)
+      +element(103, 'Lr*', 'Lawrencium', '(266)', "1.3", [2,8,18,32,32,8,3], 'actinoid', 18, 10)
+      +element(104, 'Rf*', 'Rutherfordium', '(267)', "-", [2,8,18,32,32,10,2], 'transition-metal', 4, 7)
+      +element(105, 'Db*', 'Dubnium', '(268)', "-", [2,8,18,32,32,11,2], 'transition-metal', 5, 7)
+      +element(106, 'Sg*', 'Seaborgium', '(269)', "-", [2,8,18,32,32,12,2], 'transition-metal', 6, 7)
+      +element(107, 'Bh*', 'Bohrium', '(270)', "-", [2,8,18,32,32,13,2], 'transition-metal', 7, 7)
+      +element(108, 'Hs*', 'Hassium', '(277)', "-", [2,8,18,32,32,14,2], 'transition-metal', 8, 7)
+      +element(109, 'Mt*', 'Meitnerium', '(278)', "-", [2,8,18,32,32,15,2], 'unknown', 9, 7)
+      +element(110, 'Ds*', 'Darmstadtium', '(281)', "-", [2,8,18,32,32,17,1], 'unknown', 10, 7)
+      +element(111, 'Rg*', 'Roentgenium', '(282)', "-", [2,8,18,32,32,17,2], 'unknown', 11, 7)
+      +element(112, 'Cn*', 'Copernicium', '(282)', "-", [2,8,18,32,32,18,2], 'transition-metal', 12, 7)
+      +element(113, 'Nh*', 'Nihonium', '(286)', "-", [2,8,18,32,32,18,3], 'unknown', 13, 7)
+      +element(114, 'Fl*', 'Flerovium', '(289)', "-", [2,8,18,32,32,18,4], 'post-transition-metal', 14, 7)
+      +element(115, 'Mc*', 'Moscovium', '(290)', "-", [2,8,18,32,32,18,5], 'unknown', 15, 7)
+      +element(116, 'Lv*', 'Livermorium', '(293)', "-", [2,8,18,32,32,18,6], 'unknown', 16, 7)
+      +element(117, 'Ts*', 'Tennessine', '(294)', "-", [2,8,18,32,32,18,7], 'unknown', 17, 7)
+      +element(118, 'Og*', 'Oganesson', '(294)', "-", [2,8,18,32,32,18,8], ['other-nonmetal', 'unknown'], 18, 7) 
+
+      +placeholder('57-71', 'lanthanoid', 3, 6)
+      +placeholder('89-103', 'actinoid', 3, 7)
+
+      .gap.c3.r8
+      
+      .shelllabel.r1 K
+      .shelllabel.r2 L
+      .shelllabel.r3 M
+      .shelllabel.r4 N
+      .shelllabel.r5 O
+      .shelllabel.r6 P
+      .shelllabel.r7 Q
+      
+      .periodlabel.r1 1
+      .periodlabel.r2 2
+      .periodlabel.r3 3
+      .periodlabel.r4 4
+      .periodlabel.r5 5
+      .periodlabel.r6 6
+      .periodlabel.r7 7
+      
+      .grouplabel.r0.c1 1/I
+      .grouplabel.r1.c2 2/II
+      .grouplabel.r3.c3 3/III
+      .grouplabel.r3.c4 4/IV
+      .grouplabel.r3.c5 5/V
+      .grouplabel.r3.c6 6/VI
+      .grouplabel.r3.c7 7/VII
+      .grouplabel.r3.c8 8/VIII
+      .grouplabel.r3.c9 9/VIII
+      .grouplabel.r3.c10 10/VIII
+      .grouplabel.r3.c11 11/I
+      .grouplabel.r3.c12 12/II
+      .grouplabel.r1.c13 13/III
+      .grouplabel.r1.c14 14/IV
+      .grouplabel.r1.c15 15/V
+      .grouplabel.r1.c16 16/VI
+      .grouplabel.r1.c17 17/VII
+      .grouplabel.r0.c18 18/VIII
+
+      .key
+        .row
+          label.alkali-metal(for='alkali-metals', id="alkali-metals-label")
+            +localized("alkali-metals")
+          label.alkaline-earth-metal(for='alkaline-earth-metals')
+            +localized("alkaline-earth-metals")
+          label.lanthanoid(for='lanthanoids')
+            +localized("lanthanoids")
+          label.actinoid(for='actinoids')
+            +localized("actinoids")
+          label.transition-metal(for='transition-metals') 
+            +localized("transition-metals")
+          label.post-transition-metal(for='post-transition-metals')
+            +localized("post-transition-metals")
+          label.metalloid(for='metalloids')
+            +localized("metalloids")
+          label.other-nonmetal(for='other-nonmetals')
+            +localized("other-nonmetals")
+          label.halogens(for='halogens')
+            +localized("halogens")
+          label.noble-gas(for='noble-gasses')
+            +localized("noble-gasses")
+          label.unknown(for='unknown')
+            +localized("unknown")
+      .legend.left
+        .inner
+          .title
+            +localized("legend")
+          .innerright
+            div
+              span.legendkey El
+              | &nbsp;
+              span.legendval
+                +localized('symbol')
+            div
+              span.legendkey Element
+              | &nbsp;
+              span.legendval
+                +localized('elementname')
+            div
+              span.legendkey Z
+              | &nbsp;
+              span.legendval
+                +localized('atomicnumber')
+            div
+              span.legendkey EN
+              | &nbsp;
+              span.legendval
+                +localized('electronegativity') 
+            div
+              span.legendkey M
+              | &nbsp;
+              span.legendval
+                +localized('atomic_weight_in_u') 
+      .legend.right
+        .inner
+          .innerer
+            div
+              span.legendkey ()
+              | &nbsp;
+              span.legendval
+                +localized('no_reliable_measurement')
+            div
+              span.legendkey *
+              | &nbsp;
+              span.legendval
+                +localized('radioactive')
+            div
+              span.legendkey N/N
+              | &nbsp;
+              span.legendval
+                +localized('group_explaination')
+      +element("Z", 'El', 'Element', 'M', "EN", ["K","L","M","N","O","P","Q"], ['alkali-metal','alkaline-earth-metal','lanthanoid','actinoid','transition-metal','post-transition-metal','metalloid','other-nonmetal', 'halogens','noble-gas','unknown'], 4, 2, true)
+    .language-switches-wrapper
+      - for (var lang of Object.keys(localization))
+        label(class='language-' + lang,for='language-' + lang)
+          =localization[lang]["langname"] || lang

@@ -1,0 +1,731 @@
+$bgColor: #101318
+$gridGap: 5px
+
+$alkaliMetalColor: #ecbe59
+$alkalineEarthMetalColor: #dee955
+$lanthanoidColor: #ec77a3
+$actinoidColor: #c686cc
+$transitionMetalColor: #fd8572
+$postTransitionMetalColor: #4cddf3
+$metalloidColor: #3aefb6
+$otherNonmetalColor: #52ee61
+$halogensColor: #888888
+$nobleGasColor: #759fff
+$unknownColor: #cccccc
+
+$bartransitiontime: 0.1s
+
+html
+  width: 100%
+  height: 100%
+body
+  background: $bgColor
+  width: 100%
+  height: 100%
+  text-shadow: 0 0 0.4vw currentColor
+
+.wrapper
+  position: absolute
+  width: 86%
+  height: 96%
+  left: 50%
+  transform: translate(-50%)
+  
+  > input
+    -webkit-appearance: none
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    visibility: hidden
+    opacity: 0
+    pointer-events: none
+
+.periodic-table
+  display: grid
+  grid-gap: $gridGap
+  grid-template-columns: auto repeat(18, 1fr) auto
+
+
+.square
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  border: 2px solid
+  box-sizing: border-box
+  background: $bgColor
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  transition-property: transform, z-index, left, right, top, bottom
+  transition-duration: 100ms, 0ms, 200ms, 200ms, 200ms, 200ms
+  transition-delay: 0ms, 100ms, 0ms, 0ms, 0ms, 0ms
+
+// --------------------------------------
+// ELEMENT
+.element
+  position: relative
+  font-size: 0.5vw
+  padding-bottom: 100%
+  cursor: pointer
+  color: #fff
+  transition: 500ms
+  
+  .overlay
+    position: fixed
+    z-index: 1
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background-color: $bgColor
+    opacity: 0
+    pointer-events: none
+    transition: 500ms
+  .upper-left-label
+    position: absolute
+    left: 0
+    top: 0
+    padding: 2px
+    
+    .atomic-number
+
+  .label
+    text-align: center
+    transition: 200ms
+
+  .symbol
+    font-size: 1.7vw
+
+  .name
+    font-size: 0.7vw
+
+  .atomic-mass
+    position: absolute
+    left: 0
+    bottom: 0
+    padding: 2px
+    text-align: center
+
+  .atomic-weight
+    position: absolute
+    right: 0
+    top: 0
+    list-style: none
+    margin: 0
+    padding: 2px
+    opacity: 0
+    transition: 200ms
+    text-align: right
+    font-size: 0.3vw  
+  
+  .model
+    display: none
+    position: absolute
+    left: -500%
+    right: -500%
+    top: -500%
+    bottom: -500%
+    transform: scale(0.1)
+    overflow: hidden
+    
+    .orbital
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      border: 5px solid
+      border-radius: 50%
+      opacity: 0.25
+      
+      @for $i from 1 through 7
+        &:nth-child(#{$i})
+          margin: 10% + 5.5 * ($i - 1)
+          animation-duration: 40s - 6 * ($i - 1)
+      
+      .electron
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+
+        &::before
+          content: ""
+          position: absolute
+          left: calc(50% - 0.7vw)
+          font-size: 30px
+          top: -0.8vw
+        
+        &:not(.labeled)::before
+          width: 1.4vw
+          height: 1.4vw
+          background-color: currentColor
+          border-radius: 50%
+          opacity: 0.75
+          
+        &.labeled::before
+          top: -1.6vw
+          
+        &.K::before
+          content: "K"
+        &.L::before
+          content: "L"
+        &.M::before
+          content: "M"
+        &.N::before
+          content: "N"
+        &.O::before
+          content: "O"
+        &.P::before
+          content: "P"
+        &.Q::before
+          content: "Q"
+
+        @for $i from 1 through 32
+          @for $a from 1 through $i
+            &:nth-last-child(#{$i}):first-child ~ .electron:nth-child(#{$a})
+              transform: rotate((360deg/$i)*($a - 1))
+
+  
+   
+    
+  input[type="radio"]
+    -webkit-appearance: none
+    position: absolute
+    z-index: 2
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    cursor: pointer
+    outline: none
+    
+    &.activate
+      &:hover
+        transform: scale(1.35)
+      &:hover ~ .square
+        z-index: 2
+        transform: scale(1.35)
+        transition-delay: 0ms
+        outline: none
+        pointer-events: none
+    
+      &:checked + input[type="radio"].deactivate
+        z-index: 3
+        pointer-events: all
+      
+      &:checked ~ .overlay
+        opacity: 0.75
+
+      &:checked ~ .square
+        z-index: 3
+        transform: scale(4)
+        transition-duration: 500ms, 0ms, 200ms, 200ms, 200ms, 200ms
+        transition-delay: 0ms
+        outline: none
+        cursor: auto
+        font-size: 0.3vw
+        border-width: 1px
+        
+        .label
+          transition-duration: 500ms
+          transform: scale(0.75)
+
+        .atomic-weight
+          opacity: 0.7
+          transition: 500ms
+
+        .model
+          display: block
+          animation: fade-in
+          animation-duration: 1s
+          
+        .orbital
+          animation-name: rotate
+          animation-timing-function: linear
+          animation-iteration-count: infinite
+          
+          
+      &:checked ~ .square,
+      &:hover ~ .square
+        .extendedswitch
+          .narrow
+            opacity: 0
+          .extended
+            opacity: 1
+    
+    &.deactivate
+      position: fixed
+      display: block
+      z-index: 1
+      opacity: 0
+      pointer-events: none 
+    
+      &:checked ~ .square
+        z-index: 1
+        
+    ~ .square
+      .extendedswitch
+        display: grid
+        text-align: start
+        .narrow
+          grid-row: 1
+          grid-column: 1
+          transition: opacity 0.4s
+          opacity: 1
+        .extended
+          grid-row: 1
+          grid-column: 1
+          transition: opacity 0.4s
+          opacity: 0
+        
+// --------------------------------------
+// PLACEHOLDER     
+.placeholder
+  position: relative
+  z-index: -1
+  font-size: 1vw
+  padding-bottom: 100%
+  color: #fff
+  transition: 500ms
+  
+  .square
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    border: 2px solid
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    opacity: 0.5
+
+
+// --------------------------------------
+// GAP     
+.gap
+  position: relative
+  padding-bottom: 100%
+  transition: 500ms
+  
+  &::before
+    content: ""
+    position: absolute
+    left: 50%
+    top: 0
+    width: 50%
+    height: calc(200% + #{$gridGap} * 2 - 4px)
+    border-width: 0 0 2px 2px
+    border-style: solid
+    margin-left: -1px
+    color: #fff
+    opacity: 0.2
+    
+
+  
+// --------------------------------------
+// COLORS
+.alkali-metal
+  color: $alkaliMetalColor
+
+.alkaline-earth-metal
+  color: $alkalineEarthMetalColor
+
+.lanthanoid
+  color: $lanthanoidColor
+
+.actinoid
+  color: $actinoidColor
+  
+.transition-metal
+  color: $transitionMetalColor
+
+.post-transition-metal
+  color: $postTransitionMetalColor
+
+.metalloid
+  color: $metalloidColor
+
+.other-nonmetal
+  color: $otherNonmetalColor
+
+.noble-gas
+  color: $nobleGasColor
+  
+.halogens
+  color: $halogensColor
+
+.unknown
+  color: $unknownColor
+
+
+
+// --------------------------------------
+// ROWS & COLUMNS
+@for $i from 0 through 10
+  .r#{$i}
+    grid-row: $i + 2
+
+@for $i from 0 through 19
+  .c#{$i}
+    grid-column: $i + 1
+
+
+
+// --------------------------------------
+// SHIFT EDGE ELEMENTS ON ZOOM
+.r1 input[type="radio"].activate:checked ~ .square
+  top: 90%
+
+.r10 input[type="radio"].activate:checked ~ .square
+  top: -90%
+
+.c1 input[type="radio"].activate:checked ~ .square
+  left: 50%
+
+.c18 input[type="radio"].activate:checked ~ .square
+ left: -50%
+
+
+
+// --------------------------------------
+// ANIMATIONS
+@keyframes rotate
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
+@keyframes fade-in
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes noise
+  0%, 100%
+    background-position: 0 0
+  10%
+    background-position: -5% -10%
+  20%
+    background-position: -15% 5%
+  30%
+    background-position: 7% -25%
+  40%
+    background-position: 20% 25%
+  50%
+    background-position: -25% 10%
+  60%
+    background-position: 15% 5%
+  70%
+    background-position: 0% 15%
+  80%
+    background-position: 25% 35%
+  90%
+    background-position: -10% 10%
+
+
+
+// --------------------------------------
+// KEY
+.key
+  position: relative
+  z-index: 1
+  grid-row: 1
+  grid-column-start: 3
+  grid-column-end: 19
+  font-size: 0.8vw
+  line-height: 1.5
+  display: flex
+  align-items: center
+  pointer-events: none
+  user-select: none
+  
+  .row
+    position: relative
+    display: flex
+    width: 100%
+    justify-content: space-between
+    
+    label
+      opacity: 0.85
+      cursor: pointer
+      transition: 120ms
+      pointer-events: all
+      padding: 10px
+      
+      &:hover
+        opacity: 1 !important
+
+//language-switch
+.language-select
+  -webkit-appearance: none
+  position: absolute
+  z-index: 2
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  opacity: 0
+  outline: none
+  pointer-events: none
+  
+.language-switches-wrapper
+  position: absolute
+  right: 0
+  bottom: 0
+  user-select: none
+  display: flex
+  z-index: 2
+  border-radius: 50px
+  background: rgba(0, 0, 0, 0.5)
+  border: 1px solid #585858
+  label
+    color: #ccc
+    cursor: pointer
+    pointer-events: all
+    padding: 0px 15px
+    height: 42px
+    width: 90px
+    box-sizing: border-box
+    border: 1px solid #ccc
+    border-radius: 21px
+    border-top-right-radius: 0px
+    border-bottom-right-radius: 0px
+    border-right-width: 0px
+    border-top-width: 0px
+    border-bottom-width: 0px
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+    transition: $bartransitiontime, border-color $bartransitiontime $bartransitiontime, border-left-width $bartransitiontime ease-out $bartransitiontime, border-right-width $bartransitiontime ease-in 0s, border-top-left-radius $bartransitiontime ease-out $bartransitiontime, border-bottom-left-radius $bartransitiontime ease-out $bartransitiontime, border-top-right-radius $bartransitiontime ease-in 0s, border-bottom-right-radius $bartransitiontime ease-in 0s
+    
+    span
+      pointer-events: none
+  
+      
+    
+#language-de:checked ~ .wrapper .language-switches-wrapper label.language-de,
+#language-en:checked ~ .wrapper .language-switches-wrapper label.language-en,
+#language-fr:checked ~ .wrapper .language-switches-wrapper label.language-fr,
+#language-es:checked ~ .wrapper .language-switches-wrapper label.language-es
+  border-radius: 21px
+  border: 1px solid #ccc
+  transition: $bartransitiontime, border-width $bartransitiontime $bartransitiontime, border-top-left-radius $bartransitiontime ease-out $bartransitiontime, border-bottom-left-radius $bartransitiontime ease-out $bartransitiontime, border-top-right-radius $bartransitiontime ease-out $bartransitiontime, border-bottom-right-radius $bartransitiontime ease-out $bartransitiontime
+  
+#language-de:checked ~ .wrapper .language-switches-wrapper label.language-de ~ *,
+#language-en:checked ~ .wrapper .language-switches-wrapper label.language-en ~ *,
+#language-fr:checked ~ .wrapper .language-switches-wrapper label.language-fr ~ *,
+#language-es:checked ~ .wrapper .language-switches-wrapper label.language-es ~ *
+  border-radius: 21px
+  border-top-left-radius: 0px
+  border-bottom-left-radius: 0px
+  border-right-width: 1px
+  border-left-width: 0px
+  transition: $bartransitiontime, border-color $bartransitiontime $bartransitiontime, border-left-width $bartransitiontime ease-in 0s, border-right-width $bartransitiontime ease-out $bartransitiontime, border-top-left-radius $bartransitiontime ease-in 0s, border-bottom-left-radius $bartransitiontime ease-in 0s, border-top-right-radius $bartransitiontime ease-out $bartransitiontime, border-bottom-right-radius $bartransitiontime ease-out $bartransitiontime
+  
+#language-de:checked ~ .wrapper .localization:not(.localization-de),
+#language-en:checked ~ .wrapper .localization:not(.localization-en),
+#language-fr:checked ~ .wrapper .localization:not(.localization-fr),
+#language-es:checked ~ .wrapper .localization:not(.localization-es)
+  display: none
+  
+#language-de:checked ~ .wrapper .language-switches-wrapper label:not(.language-de),
+#language-en:checked ~ .wrapper .language-switches-wrapper label:not(.language-en),
+#language-fr:checked ~ .wrapper .language-switches-wrapper label:not(.language-fr),
+#language-es:checked ~ .wrapper .language-switches-wrapper label:not(.language-es)
+  color: #585858
+  border-color: #585858
+  &.after
+    border-color: #585858
+  &.before
+    border-color: #585858
+  
+  
+  
+// --------------------------------------
+// legend
+.legend
+  position: relative
+  z-index: 1
+  font-size: 0.8vw
+  line-height: 1.5
+  display: flex
+  align-items: center
+  justify-content: center
+  pointer-events: none
+  user-select: none
+  align-items: end
+  grid-row-start: 3
+  grid-row-end: 6
+  
+  &.left
+    grid-column-start: 4
+    grid-column-end: 9
+    justify-content: flex-end
+      
+  &.right
+    grid-column-start: 9
+    grid-column-end: 14
+    justify-content: flex-start
+    
+    .inner
+      display: flex
+      flex-direction: column
+      justify-content: center
+      
+      .innerer
+        margin-left: 8px
+    
+  .legendval
+    color: #888
+
+  .legendkey
+    font-weight: bold
+  
+  .inner
+    border: 2px solid
+    color: #ccc
+    height: 100% / 3 * 2.3
+    width: 100% /5 * 4.825
+    position: relative
+    
+    .innerright
+      position: absolute
+      width: 100% / 5 * 2.65
+      height: 100%
+      right: 0
+      top: 0
+      padding: 5px
+      display: flex
+      flex-direction: column
+      justify-content: center
+    
+    .title
+      text-decoration: underline
+      font-size: 15px
+
+.element.transformed
+  .square
+    transform: translate(0, -1.5vw)
+    //z-index: 2
+  input[type="radio"]
+    &.activate
+      &:hover
+        transform: translate(0, -1.5vw) scale(1.35)
+      &:hover ~ .square
+        transform: translate(0, -1.5vw) scale(1.35)
+      &:checked ~ .square
+        transform: translate(0, -1.5vw) scale(4)
+  
+.shelllabel,.periodlabel,.grouplabel
+  color: #fff
+  display: flex
+  font-size: 1.3vw
+  
+.shelllabel
+  grid-column: 20
+  align-items: center
+    
+.periodlabel
+  grid-column: 1
+  align-items: center
+    
+.grouplabel
+  align-items: flex-end
+  justify-content: center
+      
+// --------------------------------------
+// CATEGORY TOGGLES
+#alkali-metals:checked ~ .periodic-table .element:not(.alkali-metal),
+#alkaline-earth-metals:checked ~ .periodic-table .element:not(.alkaline-earth-metal),
+#lanthanoids:checked ~ .periodic-table .element:not(.lanthanoid),
+#actinoids:checked ~ .periodic-table .element:not(.actinoid),
+#transition-metals:checked ~ .periodic-table .element:not(.transition-metal),
+#post-transition-metals:checked ~ .periodic-table .element:not(.post-transition-metal),
+#metalloids:checked ~ .periodic-table .element:not(.metalloid),
+#other-nonmetals:checked ~ .periodic-table .element:not(.other-nonmetal),
+#halogens:checked ~ .periodic-table .element:not(.halogens),
+#noble-gasses:checked ~ .periodic-table .element:not(.noble-gas),
+#unknown:checked ~ .periodic-table .element:not(.unknown),
+#alkali-metals:checked ~ .periodic-table .placeholder,
+#alkaline-earth-metals:checked ~ .periodic-table .placeholder,
+#lanthanoids:checked ~ .periodic-table .placeholder:not(.lanthanoid),
+#actinoids:checked ~ .periodic-table .placeholder:not(.actinoid),
+#transition-metals:checked ~ .periodic-table .placeholder,
+#post-transition-metals:checked ~ .periodic-table .placeholder,
+#metalloids:checked ~ .periodic-table .placeholder,
+#other-nonmetals:checked ~ .periodic-table .placeholder,
+#noble-gasses:checked ~ .periodic-table .placeholder,
+#halogens:checked ~ .periodic-table .placeholder,
+#unknown:checked ~ .periodic-table .placeholder
+  opacity: 0.15
+  pointer-events: none
+
+#alkali-metals:checked ~ .periodic-table .key label:not(.alkali-metal),
+#alkaline-earth-metals:checked ~ .periodic-table .key label:not(.alkaline-earth-metal),
+#lanthanoids:checked ~ .periodic-table .key label:not(.lanthanoid),
+#actinoids:checked ~ .periodic-table .key label:not(.actinoid),
+#transition-metals:checked ~ .periodic-table .key label:not(.transition-metal),
+#post-transition-metals:checked ~ .periodic-table .key label:not(.post-transition-metal),
+#metalloids:checked ~ .periodic-table .key label:not(.metalloid),
+#other-nonmetals:checked ~ .periodic-table .key label:not(.other-nonmetal),
+#halogens:checked ~ .periodic-table .key label:not(.halogens),
+#noble-gasses:checked ~ .periodic-table .key label:not(.noble-gas),
+#unknown:checked ~ .periodic-table .key label:not(.unknown)
+  opacity: 0.65
+
+.category-toggle:not(#lanthanoids):not(#actinoids):checked ~ .periodic-table .gap
+  opacity: 0.5
+
+.category-toggle:checked ~ .category-cancel
+  visibility: visible
+  pointer-events: all
+  cursor: pointer
+  
+// --------------------------------------
+// PRIORITY COLORS
+#alkali-metals:checked ~ .periodic-table .alkali-metal
+  color: $alkaliMetalColor !important
+
+#alkaline-earth-metals:checked ~ .periodic-table .alkaline-earth-metal
+  color: $alkalineEarthMetalColor !important
+
+#lanthanoids:checked ~ .periodic-table .lanthanoid
+  color: $lanthanoidColor !important
+
+#actinoids:checked ~ .periodic-table .actinoid
+  color: $actinoidColor !important
+  
+#transition-metals:checked ~ .periodic-table .transition-metal
+  color: $transitionMetalColor !important
+
+#post-transition-metals:checked ~ .periodic-table .post-transition-metal
+  color: $postTransitionMetalColor !important
+
+#metalloids:checked ~ .periodic-table .metalloid
+  color: $metalloidColor !important
+
+#other-nonmetals:checked ~ .periodic-table .other-nonmetal
+  color: $otherNonmetalColor !important
+
+#noble-gasses:checked ~ .periodic-table .noble-gas
+  color: $nobleGasColor !important
+  
+#halogens:checked ~ .periodic-table .halogens
+  color: $halogensColor !important
+
+#unknown:checked ~ .periodic-table .unknown
+  color: $unknownColor !important
